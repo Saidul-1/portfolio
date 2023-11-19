@@ -1,12 +1,12 @@
 *{
   box-sizing: border-box;
   margin: 0;
-  padding: 0px;
+  padding: 0;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  background-size: cover;
 }
 a{
+	display: inline;
   text-decoration: none;
   color: white;
   padding: .8rem;
@@ -17,7 +17,7 @@ a{
 #navbar{
   display: flex;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   padding: 0 15px;
   color: white;
   background-color: #be3144;
@@ -34,14 +34,15 @@ a{
   font-size: 1.4em;
   font-weight: 200;
   font-style: italic;
-  font-family: 'Poppins', sans-serif;  color: #D9384E;
+  font-family: 'Poppins', sans-serif;  
+	color: #D9384E;
 }
 #welcome-section{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   text-align: center;
   background: linear-gradient(to right, #303841, #1a1a1c);
 }
@@ -54,14 +55,14 @@ a{
   text-underline-offset: .5rem;
 }
 .project-tile img{
-  height: 300px;
-  width: 300px;
+  height: min(45vw, 300px);
+  width: min(45vw, 300px);
   background-color: purple;
 }
 .project-name{
   display: flex;
-  height: 50px;
-  width: 300px;
+  min-height: 3rem;
+  width: min(45vw, 300px);
   color: white;
   background-color: #303841;
   justify-content: center;
@@ -76,28 +77,28 @@ a{
 }
 span{
   font-size: 1.2em;
-  color: #303841;
+  color: orange;
+	filter: opacity(0);
   margin: .3em;
 }
 .project-tile:hover{
-  span{
-    color: orange;
-    transition: color .3s ease-out;
+   .project-name span{
+    filter: opacity(1);
+    transition: filter .3s linear;
   }
 }
 .project{
   display: grid;
-  grid-template-columns: 300px 300px 300px;
+  grid-template-columns: repeat(3,min(45vw, 300px));
   justify-content: center;
-  grid-gap: 25px;
-  margin: 30px 10px;
+  grid-gap: min(5vw, 25px);
+  margin: 30px 0;
 }
 #profile-link{
   margin: 20px;
   padding: 5px 10px;
   color: white;
   background-color: #303841;
-  font-weight: normal;
 }
 #profile-link:hover{
   background-color: #be3144;
@@ -107,7 +108,7 @@ span{
   }
 }
 #projects{
-  width: 100vw;
+  width: 100%;
   background-color: #45567d;
   padding: 50px 5px; 
 }
@@ -136,7 +137,7 @@ span{
 }
 #contact {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   font-family: 'Poppins', sans-serif;
   color: white;
   background-color: #303841;
@@ -146,42 +147,20 @@ span{
   justify-content: center;
 }
 @media screen and (max-width: 960px){
-  .project-tile img{
-    width: 250px;
-    height: 250px;
-  }
- .project-name{
-    max-height: 40px;
-    width: 250px;
-  }
   .project{
-  	grid-template-columns: 250px 250px;
+  	grid-template-columns: repeat(2, min(45vw,300px));
   }
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 600px){
   *{
     font-size: 0.9rem;
   }
   #navbar{
-    padding: 0;
+    padding: 0 5px;
   }
-  #projects h2{
-    font-size: 1.3rem;
-  }
-  .project-tile img{
-    width: 40vw;
-    height: 40vw;
-  }
- .project-name{
-    max-height: 10vw;
-    width: 40vw;
-    font-size: .7rem;
-  }
-   .project{
-  	grid-template-columns: 40vw 40vw;
-    grid-gap: 5vw;
-  }
-  .contact-link{
-    font-size: .9rem;    
+}
+@media screen and (max-width: 320px){
+  *{
+    font-size: 0.8rem;
   }
 }
